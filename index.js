@@ -1,9 +1,8 @@
-// TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 const { off } = require("process");
+const generateMarkdown = require("./utils/generateMarkdown");
     
-// TODO: Create an array of questions for user input
 inquirer
 .prompt([
         {
@@ -35,7 +34,6 @@ inquirer
             name: "licenses",
             message: "Which license(s) protect this app?",
             choices: [
-                "GT License", 
                 "Creative Commons", 
                 "Mozilla", 
                 "Open Data Commons", 
@@ -45,23 +43,19 @@ inquirer
     
 ])
 .then((data) => {
-    const filename = `${data.project_name.toLowerCase()+ 'README.md'}.json`;
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!'))
+    const pikachu = generateMarkdown(data)
+    writeToFile("wonderFullREADME.md", pikachu);
 });
 
-// TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function(error) {
         if(error) {
             return console.log(error);
         }
-        return console.log("Got it! Your information is saved!");
+        return console.log("Wonderful! Your information is saved!");
     })
 }
 
-// TODO: Create a function to initialize app
 function init() {}
 
-// Function call to initialize app
 init();
