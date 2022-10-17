@@ -6,8 +6,6 @@ const { off } = require("process");
 // TODO: Create an array of questions for user input
 inquirer
 .prompt([
-    // const questions = 
-
         {
             type: "input",
             name: "username",
@@ -30,8 +28,13 @@ inquirer
             message: "How do we need to use it?"
         }, {
             type: "input",
-            name: "credit",
-            message: "Are there any sources to cite? Any collaborators on the project?"
+            name: "contact",
+            message: "Can we reach you with additional questions?"
+        }, {
+            type: "list",
+            name: "licenses",
+            message: "Which license(s) protect this app?"
+            choices: {"GT License", "Creative Commons", "Mozilla", "Open Data Commons"}
         }
     
 ])
