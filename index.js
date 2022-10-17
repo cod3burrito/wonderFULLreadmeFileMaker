@@ -33,8 +33,14 @@ inquirer
         }, {
             type: "list",
             name: "licenses",
-            message: "Which license(s) protect this app?"
-            choices: {"GT License", "Creative Commons", "Mozilla", "Open Data Commons"}
+            message: "Which license(s) protect this app?",
+            choices: [
+                "GT License", 
+                "Creative Commons", 
+                "Mozilla", 
+                "Open Data Commons", 
+                "none"
+            ]
         }
     
 ])
